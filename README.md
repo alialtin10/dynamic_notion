@@ -1,6 +1,6 @@
 # Grade Calculator
 
-![App Screenshots](https://github.com/yourusername/your-repo-name/blob/main/path-to-image.png)
+![App Screenshots](https://github.com/alialtin10/dynamic_notion/image/a.png)
 
 ## Overview
 
