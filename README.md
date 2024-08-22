@@ -39,3 +39,26 @@ Here are some screenshots of the app:
 
    ```bash
    git clone https://github.com/yourusername/your-repo-name.git
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd your-repo-name
+
+3. Install dependencies:
+
+   ```bash
+   flutter pub get
+
+4. Run the app:
+
+   ```bash
+   flutter run
+
+## Contributing
+This is a personal project for learning purposes, but feel free to open issues or submit pull requests if you have suggestions for improvements.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
