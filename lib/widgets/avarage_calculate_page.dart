@@ -2,6 +2,8 @@ import 'package:dynamic_notion_avarage/constants/app_constants.dart';
 import 'package:dynamic_notion_avarage/helper/data_helper.dart';
 import 'package:dynamic_notion_avarage/model/lesson.dart';
 import 'package:dynamic_notion_avarage/widgets/course_list.dart';
+import 'package:dynamic_notion_avarage/widgets/credit_dropdown_widget.dart';
+import 'package:dynamic_notion_avarage/widgets/letter_dropdpwn_widgets.dart';
 import 'package:dynamic_notion_avarage/widgets/show_avarage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,12 +19,13 @@ class CalculateAvarageApp extends StatefulWidget {
 
 class _CalculateAvarageAppState extends State<CalculateAvarageApp> {
   var formKey = GlobalKey<FormState>();
-  double secilenHarfDeger = 4;
+  double secilenHarfDeger = 1;
   double secilenKrediDegeri = 1;
   String inputLessonname = "";
 
   @override
   Widget build(BuildContext context) {
+    print("buid");
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -45,7 +48,14 @@ class _CalculateAvarageAppState extends State<CalculateAvarageApp> {
             ],
           ),
           Expanded(
-            child : CourseLisr()
+            child : CourseLisr(
+              onDismiss: (index) {
+                DataHelper.allAddedCourse.removeAt(index);
+                setState(() {
+                  
+                });
+              },
+            )
           )
         ],
       )
@@ -62,8 +72,12 @@ Widget  _buildForm() {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-           Expanded(child: Padding(padding: Constants.Y8Padding ,child: _buildHarfler(),)),
-           Expanded(child: Padding(padding: Constants.Y8Padding ,child: _buildCredits(),)),
+           Expanded(child: Padding(padding: Constants.Y8Padding ,child: LetterDropdpwnWidgets(onLetterChoose: (harf){
+            secilenHarfDeger = harf;
+           },),)),
+           Expanded(child: Padding(padding: Constants.Y8Padding ,child: CreditDropdownWidget(onCredidChoose: (Credit){
+            secilenKrediDegeri = Credit;
+           }),)),
             
             IconButton(
               onPressed: _LessonAddedandAvarageCalculate, 
@@ -103,7 +117,7 @@ Widget  _buildTextFomField() {
     );
   }
   
-  _buildHarfler() {
+ /* _buildHarfler() {
     return Container(
       padding: Constants.dropDownPadding,
       alignment: Alignment.center,
@@ -124,9 +138,9 @@ Widget  _buildTextFomField() {
       ),
       
     );
-  }
+  }*/
 
-    _buildCredits() {
+  /*  _buildCredits() {
     return Container(
       padding: Constants.dropDownPadding,
       alignment: Alignment.bottomCenter,
@@ -147,7 +161,7 @@ Widget  _buildTextFomField() {
       ),
       
     );
-  }
+  }*/
   
   _LessonAddedandAvarageCalculate() {
     if(formKey.currentState!.validate()){

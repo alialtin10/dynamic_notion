@@ -2,14 +2,11 @@ import 'package:dynamic_notion_avarage/constants/app_constants.dart';
 import 'package:dynamic_notion_avarage/helper/data_helper.dart';
 import 'package:flutter/material.dart';
 
-class CourseLisr extends StatefulWidget {
-  const CourseLisr({super.key});
+class CourseLisr extends StatelessWidget {
+  final Function onDismiss;
+  const CourseLisr({required this.onDismiss ,super.key});
 
-  @override
-  State<CourseLisr> createState() => _CourseLisrState();
-}
 
-class _CourseLisrState extends State<CourseLisr> {
   @override
   Widget build(BuildContext context) {
     List allLesson = DataHelper.allAddedCourse; 
@@ -18,10 +15,8 @@ class _CourseLisrState extends State<CourseLisr> {
         key: UniqueKey(),
         direction: DismissDirection.startToEnd,
         onDismissed: (a){
-          allLesson.removeAt(index);
-          setState(() {
-            
-          });
+          onDismiss(index);
+          
         },
         child: Padding(
           padding: const EdgeInsets.all(2.0),
