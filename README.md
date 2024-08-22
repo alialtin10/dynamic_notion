@@ -16,8 +16,8 @@
 
 Here are some screenshots of the app:
 
-![Screenshot 1](https://github.com/yourusername/your-repo-name/blob/main/path-to-image-1.png)
-![Screenshot 2](https://github.com/yourusername/your-repo-name/blob/main/path-to-image-2.png)
+![Screenshot 1](https://github.com/alialtin10/dynamic_notion/blob/master/image/b.png)
+![Screenshot 2](https://github.com/alialtin10/dynamic_notion/blob/master/image/c.png)
 
 ## How to Use
 
